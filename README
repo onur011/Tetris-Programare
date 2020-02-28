@@ -1,0 +1,159 @@
+			CD 311 Veis Onur Șener
+
+	Tema a fost realizata in editorul de text Sublime Text.
+	
+	Programul ruleaza in functie de taskul introdus.
+
+	@@@ TASK 1 || TASK 2 @@@
+
+	Voi detalia doar o singura functie de tipul "piesa_*()", deoarece 
+toate au aproape acelasi cod, fiind diferit doar prin culoarea introdusa
+si prin dimensiuni.
+
+	***piesa_T***
+
+	Se aloca memorie dinamic pentru un pointer "pbmp", in care se salveaza
+datele specifice (fileheader si infoheader) pentru un fisier de tip bmp.
+	
+	Se deschide fisierul "piesa_T.bmp" pentru scriere binara.
+
+	Se aloca dinamic memorie vectorului de imagine "pbuf", care memoreaza biti
+de culoare si paddingul.
+
+	Continutul variabilei "pbmp" este scris in fisierul "piesa_T.bmp"
+
+	Vectorul de imagine "pbuf" este utilizat ca o matrice, pentru a usura 
+crearea de piese.
+
+	Se introduc conditii pentru a scrie pixelii de coloarea dorita la
+coordonata respectiva.
+
+	In acesta se memoreaza bitii specifici fiecarei culori, dupa care sunt
+scrisi in fisier.
+	
+	In cazul in care trebuie sa se introduca paddingul, se scrie in fisier
+valoarea "0x00".
+
+	Algoritmul se reia si pentru scrierea imaginilor cu piesa la un alt
+unghi de rotatie (0, 90, 180, 270).
+
+	***
+
+	@@@ TASK 3 @@@
+
+	Se citesc numarul de piese "N", inaltimea imaginii "H" si latimea imaginii
+"L" din fisierul "cerinta3.in".
+	
+	In variabila "bitiextra" se memoreaza numarul de biti de padding care
+trebuie adaugati la sfarsitul liniilor. 
+
+	Matricea "imagine" este alocata dinamic cu "H + 40" linii si 
+"L + bitiextra" coloane. Cele 40 de linii reprezinta partea alba a imaginii.
+
+	Practic, un termen al matricei memoreaza un pixel din imagine.
+
+	Aceasta se parcurge de la ultima linii spre prima, pentru ca in final sa nu
+se afiseze imaginea intoarsa.
+
+	Se creaza fundalul alb si negru. (valoarea 0 pentru alb si 1 pentru negru).
+
+	In functie de numarul de piese "N" se vor repeta urmatoarele bucati de cod.
+
+	Se citesc "numepiesa", "rotatie" si "coloana" din fisierul "cerinta3.in".
+
+	In functie de tipul de piesa se apeleaza functiile "piesa_*_imagine",
+care urmeaza acelasi algoritm, diferind prin dimensiuni, culoare,
+pozitionare.
+
+	***piesa_T_imagine***
+
+	Se parcurge matricea in sens invers al liniilor si se verifica cat poatea
+sa cada piesa pe coloana data, fara a se intersecta cu alte piese.
+
+	Se memoreaza linia in variabila "c".
+
+	Dupa care se incepe crearea piesei in matricea "imagine" in functie de 
+variabila "c".
+
+	Urmeaza un set de conditii care genereaza forma de "T" piesei, pixelii
+respectivi luand valoarea "5" in matrice ( "5" reprezinta culoarea mov).
+
+	Codul functiei se repeta, tinand cont de "rotatie". Algoritmul este 
+asemanator, diferind doar prin forma piesei.
+	
+	***
+
+	Dupa care se trece la functia de eliminare a liniilor pline cu piese.
+
+	***Eliminare()***
+
+	Se parcurge matricea in scopul gasirii liniilor pline cu piese.
+
+	Daca se gaseste una, aceasta este eliminata prin mutarea liniilor
+in jos pana la linia respectiva.
+
+	Din cauza ca matricea "imagine" a "coborat" ,apar linii de culoare alba,
+mai multe decat sunt necesare.
+
+	Asa ca se incepe "vopsirea" pixelilor albi aflati in plus in culoarea
+neagra.
+
+
+	***Verificare()***
+	
+	Functia verifica daca exista piese pe partea alba a imaginii.
+
+	Daca da, se opreste scrierea altor piese.
+
+	***Imagine()***
+
+	Functia de creare a fisierului de tip bmp este asemanatoare cu "piesa_T()",
+doar ca in acest caz se introduc bitii de pixel in functie de valorile din 
+matricea "imaginie".
+
+	0 - alb
+	1 - negru
+	2 -	albastru
+	3 - portocaliu
+	4 - rosu
+	5 - mov
+	6 - verde
+	7 -	roz
+	8 - galben
+
+	***
+
+	Se elibereaza memoria "imagine".
+	
+	@@@ Task 4 @@@
+
+	Contine functia "task4()"
+
+	***task4()***
+
+	Se deschide fisierul "cerinta4.bmp" pentru a se citi din el.
+
+	Se citesc in variabila "pbmp" datele despre fileheader si infoheader.
+
+	Se calculeaza "bitiextra" in functiile de latimea imaginii date la input.
+
+	In vectorul "pbuf" sunt introdusi bitii de pixel din fisierul de tip bmp.
+
+	Dupa care sunt scrise in matricea "imagine" anumite valor, in functie 
+de culoarea pixelilor, conform echivalentei de mai sus.
+
+	De aici algoritmul este asemanator cu cel de la task 3.
+
+	***imagine4()***
+
+	Difera de functia "imagine()" doar prin numele fisierului.
+
+	***
+
+
+
+
+
+
+
+
